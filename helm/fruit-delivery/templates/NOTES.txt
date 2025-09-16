@@ -1,0 +1,13 @@
+Thanks for installing {{ .Chart.Name }}!
+
+This chart deploys the fruit-delivery web app. To access it:
+
+1. Install the release (creates namespace if needed):
+   helm install {{ .Release.Name }} ./helm/fruit-delivery --namespace {{ include "fruit-delivery.namespace" . }} --create-namespace
+
+2. Once the pod is running, expose it:
+   - Port-forward locally:
+       kubectl port-forward svc/{{ include "fruit-delivery.fullname" . }} 5173:80 --namespace {{ include "fruit-delivery.namespace" . }}
+   - Or enable ingress by setting `ingress.enabled=true` and configure DNS/TLS as needed.
+
+Service type: {{ .Values.service.type }} on port {{ .Values.service.port }}.

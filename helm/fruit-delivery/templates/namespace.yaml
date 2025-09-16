@@ -1,0 +1,8 @@
+{{- if and .Values.namespace.create (ne (include "fruit-delivery.namespace" .) "") -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ include "fruit-delivery.namespace" . }}
+  labels:
+    {{- include "fruit-delivery.labels" . | nindent 4 }}
+{{- end -}}

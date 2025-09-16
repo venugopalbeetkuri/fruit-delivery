@@ -1,0 +1,6 @@
+apiVersion: v2
+name: fruit-delivery
+description: Helm chart for deploying the fruit-delivery React app
+icon: https://raw.githubusercontent.com/helm/helm/main/docs/img/helm.svg
+version: 0.1.0
+appVersion: "1.0.0"
